@@ -1,0 +1,146 @@
+/* general */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+
+/* flex stuff */
+.flex-align-center {
+    display:flex;
+    align-items: center;
+
+}
+
+.flex-align-center-justify-between {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-align-center-justify-start {
+    display:flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-10px {
+    gap:10px;
+}
+
+.gap-20px {
+    gap:20px;
+}
+
+/* colors */
+
+:root {
+    --Moderateblue: hsl(238, 40%, 52%);
+    --softRed: hsl(358, 79%, 66%);
+    --Lightgrayishblue: hsl(239, 57%, 85%);
+    --Palered: hsl(357, 100%, 86%);
+
+    --Darkblue: hsl(212, 24%, 26%);
+    --GrayishBlue: hsl(211, 10%, 45%);
+    --Lightgray: hsl(223, 19%, 93%);
+    --Verylightgray: hsl(228, 33%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+/* stylings */
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--Lightgray) ;
+}
+
+.comment-sec,
+.reply-sec,
+.add-comment-sec {
+    background-color: var(--White);
+
+    /* layouts */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.reply-sec {
+    margin-left: 20px;
+}
+
+
+.reply-sec__score-sec,
+.comment-sec__score-sec {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--Lightgrayishblue);
+    padding: 5px 10px;
+    color: var(--Moderateblue);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+svg {
+    color: var(--Darkblue)
+}
+
+.comment-sec__reply,
+.reply-sec__reply {
+    display:flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--White);
+    color: var(--Moderateblue);
+    font-weight: bold;
+    border:none;
+}
+
+.comment-sec__avatar,
+.reply-sec__avatar,
+.add-comment-sec__footer__avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-sec__created-at,
+.reply-sec__created-at {
+    color: var(--GrayishBlue)
+}
+
+.comment-sec__username, 
+.reply-sec__username {
+    color: var(--Darkblue)
+}
+
+.add-comment-sec__input-comment {
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid hsl(223, 19%, 93%);
+    min-height: 70px;
+}
+
+.add-comment-sec__footer__send {
+    padding: 9px 20px;
+    background-color:var(--Moderateblue);
+    color: var(--White);
+    font-weight: bold;
+    border:none;
+    border-radius:5px;
+    text-transform: uppercase;
+}
+
+
+@media (min-width:600px) {
+    body{
+        background-color: black;
+    }
+}
