@@ -110,9 +110,6 @@ function myFunc(fetchedData) {
     replytwoContentDOM.innerText = replytwoContent
     replytwoScoreDOM.innerText = replytwoScore
 
-    console.log(Object.entries(fetchedData))
-    console.log( Object.entries(fetchedData)[0][1]["username"])
-
     // add comment //
     //grab values out of Data//
     const addCommentImgSrc = OBJ[0][1]["image"]["png"]
@@ -123,6 +120,81 @@ function myFunc(fetchedData) {
     // put values in HTML elements //
     addCommentImgSrcDOM.setAttribute("src", addCommentImgSrc)
     
+
+    //replies
+    const replySec = $.getElementsByClassName("sec-reply")
+    const replysecArray = Object.values(replySec)
+    
+    replysecArray.forEach((reply , index)=> {
+      reply.addEventListener("click" , ()=>{
+        if(index === 0) {
+        const replyContainer = $.createElement("div")
+        const commentOneSection = $.getElementById("comment-one")
+        replyContainer.innerHTML = `<section class="add-comment-sec">
+        <textarea class="add-comment-sec__input-comment" name="add-comment-sec__input-comment" id="add-comment-sec__input-comment" placeholder ="Add a comment"> </textarea>
+        <div class="add-comment-sec__footer flex-align-center-justify-between">
+          <img src="" alt="avatar" class="add-comment-sec__footer__avatar" id="add-comment-sec__footer__avatar">
+          <button class="add-comment-sec__footer__send">Send</button>
+        </div>
+      </section>`
+      commentOneSection.insertAdjacentElement("afterend" ,replyContainer)
+        }
+
+        if(index === 1) {
+          const replyContainer = $.createElement("div")
+          const commenttwoSection = $.getElementById("comment-two")
+          replyContainer.innerHTML = `<section class="add-comment-sec">
+          <textarea class="add-comment-sec__input-comment" name="add-comment-sec__input-comment" id="add-comment-sec__input-comment" placeholder ="Add a comment"> </textarea>
+          <div class="add-comment-sec__footer flex-align-center-justify-between">
+            <img src="" alt="avatar" class="add-comment-sec__footer__avatar" id="add-comment-sec__footer__avatar">
+            <button class="add-comment-sec__footer__send">Send</button>
+          </div>
+        </section>`
+        commenttwoSection.insertAdjacentElement("afterend" ,replyContainer)
+          }
+
+
+        if(index === 2) {
+          const replyContainer = $.createElement("div")
+          const replyOneSection = $.getElementById("reply-one")
+          replyContainer.innerHTML = `<section class="margin-left add-comment-sec">
+          <textarea class="add-comment-sec__input-comment" name="add-comment-sec__input-comment" id="add-comment-sec__input-comment" placeholder ="Add a comment"> </textarea>
+          <div class="add-comment-sec__footer flex-align-center-justify-between">
+            <img src="" alt="avatar" class="add-comment-sec__footer__avatar" id="add-comment-sec__footer__avatar">
+            <button class="add-comment-sec__footer__send">Send</button>
+          </div>
+        </section>`
+        replyOneSection.insertAdjacentElement("afterend" ,replyContainer)
+          }
+      })
+    })
+
+
+
+/* delete button */
+
+const replySecDelete = $.querySelector(".reply-sec__delete")
+const deleteMessage = $.querySelector(".delete-message")
+const container = $.querySelector(".container")
+
+replySecDelete.addEventListener("click" , ()=> {
+  deleteMessage.classList.remove("hidden")
+  container.classList.add("container-grey-hover")
+})
+
+/* delete comment button */
+
+const deleteBTN = $.querySelectorAll(".delete-message__yes")
+const myReply = $.querySelector(".my-reply")
+console.log(deleteBTN)
+ deleteBTN.forEach((del)=>{
+  del.addEventListener("click" , ()=>{
+    myReply.classList.add("hidden")
+    deleteMessage.classList.add("hidden")
+    container.classList.remove("container-grey-hover")
+  })
+ })
+
 }
 
 
